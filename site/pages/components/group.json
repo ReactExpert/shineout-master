@@ -1,0 +1,49 @@
+{
+  "": {},
+  "General": {
+    "Button": "按钮",
+    "Dropdown": "下拉菜单",
+    "Icon": "图标",
+    "Image": "图片"
+  },
+  "Form": {
+    "Cascader": "级联选择",
+    "Checkbox": "复选框",
+    "DatePicker": "日期选择",
+    "Form": "表单",
+    "Input": "输入框",
+    "Radio": "单选框",
+    "Rate": "评分",
+    "Select": "选择框",
+    "Slider": "滑块",
+    "Textarea": "多行文本框",
+    "Upload": "上传"
+  },
+  "Data": {
+    "Carousel": "轮播",
+    "Datum.Form": "表单处理",
+    "Datum.List": "数据处理",
+    "Pagination": "分页",
+    "Table": "表格",
+    "Tree": "树形选择"
+  },
+  "Feedback": {
+    "Alert": "提示框",
+    "Message": "消息提示",
+    "Spin": "加载中",
+    "Modal": "对话框",
+    "Popover": "气泡",
+    "Progress": "进度条",
+    "Tooltip": "提示"
+  },
+  "Layout": {
+    "Card": "卡片",
+    "Grid": "栅格",
+    "Sticky": "附着",
+    "Tabs": "标签页"
+  },
+  "Navigation": {
+    "Breadcrumb": "面包屑",
+    "Menu": "菜单"
+  }
+}

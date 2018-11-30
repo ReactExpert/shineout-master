@@ -1,0 +1,118 @@
+@import './variables.less';
+@import './themes/@{so-theme}.less';
+
+@tabs-prefix: ~"@{so-prefix}-tabs";
+
+.@{tabs-prefix} {
+  position: relative;
+
+  &-header {
+    display: flex;
+    position: relative;
+    z-index: 1;
+
+    .@{tabs-prefix}-tab {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      padding: @tabs-link-padding;
+      margin: 0 0 -1px 0;
+      border: solid 1px transparent;
+      border-radius: @tabs-link-border-radius @tabs-link-border-radius 0 0;
+      cursor: pointer;
+    }
+
+    .@{tabs-prefix}-tab + .@{tabs-prefix}-tab {
+      margin-left: @tabs-link-spacing;
+    }
+
+    .@{tabs-prefix}-active {
+      z-index: 100;
+      cursor: default;
+    }
+
+    .@{tabs-prefix}-hr {
+      position: absolute;
+      z-index: 10;
+      bottom: 0;
+      width: 100%;
+      border-bottom: solid 1px transparent;
+    }
+  }
+
+  .@{tabs-prefix}-button-active {
+    position: relative;
+    color: #fff;
+    background: @colors-primary;
+    z-index: 100;
+    &:before {
+      display: none;
+    }
+
+    &:not(:last-child):after {
+      content: ' ';
+      border-right: solid 1px @colors-primary;
+      position: absolute;
+      right: -1px;
+      width: 0;
+      top: 0;
+      bottom: 0;
+    }
+  }
+
+  &-inner {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  &-scroll {
+    display: inline-block;
+    white-space: nowrap;
+    transition: margin 0.2s linear;
+  }
+
+  &-align-right &-inner {
+    text-align: right;
+  }
+
+  &-scroll-prev, &-scroll-next {
+    position: relative;
+    width: 30px;
+    text-align: center;
+    background: #fff;
+    cursor: pointer;
+
+    svg {
+      position: absolute;
+      width: 10px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &-panel {
+    position: relative;
+    z-index: 10;
+    display: none;
+
+    &.@{tabs-prefix}-show {
+      display: block;
+    }
+  }
+
+  &-line {
+    .@{tabs-prefix}-active {
+      color: @tabs-line-active-color;
+      &:after {
+        position: absolute;
+        content: ' ';
+        height: 2px;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        background: @tabs-line-active-color;
+      }
+    }
+  }
+}

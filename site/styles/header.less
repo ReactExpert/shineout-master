@@ -1,0 +1,51 @@
+@import './variables.less';
+
+.doc-header {
+  @header-height: 60px;
+
+  height: @header-height;
+  border-bottom: solid 1px rgb(232, 242, 255);
+  display: flex;
+  align-items: center;
+
+  &-logo {
+    padding: 18px 50px;
+    font-size: 0;
+    width: 20%;
+
+    svg {
+      width: 120px;
+      height: 24px;
+    }
+  }
+
+  &-nav {
+    display: inline-block;
+    flex: 1;
+    padding-left: 30px;
+
+    a {
+      color: #333;
+      display: inline-block;
+      padding: 0 10px;
+      margin: 0 20px;
+      line-height: @header-height;
+      text-decoration: none;
+    }
+
+    a.doc-header-active, a:hover {
+      color: #333;
+    }
+  }
+
+  &-right {
+    padding-right: 20px;
+  }
+
+  &-light {
+    vertical-align: middle;
+    button, button:hover, button:focus, button:active {
+      color: #333;
+    }
+  }
+}

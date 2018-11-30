@@ -1,0 +1,252 @@
+@import './variables.less';
+@import './themes/@{so-theme}.less';
+
+@upload-prefix: ~"@{so-prefix}-upload";
+
+.@{upload-prefix} {
+  &-handle {
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: 8px;
+  }
+
+  &-view-value, &-view-file {
+    position: relative;
+    padding: 4px 10px;
+
+    .@{upload-prefix}-text {
+      margin-right: 20px;
+      word-break: break-all;
+    }
+
+    .@{upload-prefix}-delete, .@{upload-prefix}-recover {
+      position: absolute;
+      top: 2px;
+      right: 10px;
+      color: @colors-danger;
+      width: 12px;
+      height: 12px;
+      font-size: 16px;
+      vertical-align: middle;
+
+      svg {
+        width: 12px;
+        height: 12px;
+      }
+
+      &:active {
+        text-decoration: none;
+      }
+    }
+
+    .@{upload-prefix}-delete svg {
+      width: 10px;
+      height: 10px;
+      fill: @gray-300;
+    }
+
+    .@{upload-prefix}-recover svg {
+      fill: @colors-primary;
+    }
+
+    &:hover {
+      background: @dropdown-link-hover-bg;
+
+      .@{upload-prefix}-delete svg {
+        fill: @colors-danger;
+      }
+    }
+
+    &.@{upload-prefix}-to-be-delete {
+      color: @gray-400;
+      text-decoration: line-through;
+    }
+
+    &.@{upload-prefix}-error {
+      color: @colors-danger;
+    }
+  }
+
+  &-view-file {
+    .@{upload-prefix}-delete svg {
+      fill: @colors-danger;
+    }
+  }
+
+  &-view-file {
+    .@{upload-prefix}-progress {
+      margin-top: 2px;
+    }
+  }
+
+  &-image-item {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 12px;
+    border: dashed 1px @upload-image-border;
+    background: @upload-image-bg;
+    border-radius: 2px;
+
+    .@{upload-prefix}-image-bg {
+      position: absolute;
+      left: @upload-image-space;
+      top: @upload-image-space;
+      right: @upload-image-space;
+      bottom: @upload-image-space;
+      z-index: 0;
+      background-size: cover;
+    }
+
+    .@{upload-prefix}-progress-bg {
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: inherit;
+    }
+
+    .@{upload-prefix}-progress {
+      position: absolute;
+      z-index: 10;
+      bottom: 4px;
+      left: 4px;
+      right: 4px;
+    }
+
+    .@{upload-prefix}-delete, .@{upload-prefix}-recover {
+      display: flex;
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      top: -7px;
+      right: -7px;
+      z-index: 100;
+      border-radius: 8px;
+      background: @colors-danger;
+
+      svg {
+        margin: auto;
+        width: 6px;
+        height: 6px;
+        fill: #ffffff;
+      }
+    }
+
+    .@{upload-prefix}-recover {
+      background: @colors-primary;
+      svg {
+        width: 8px;
+        height: 8px;
+      }
+    }
+
+    &.@{upload-prefix}-error {
+      border-color: @colors-danger;
+
+      .@{upload-prefix}-message {
+        position: absolute;
+        z-index: 1000;
+        font-size: 12px;
+        background: @gray-100;
+        padding: @padding-small-vertical @padding-small-horizontal;
+        min-width: 120px;
+        max-width: 240px;
+        border-radius: @input-border-radius;
+        color: @form-feedback-invalid-color;
+        box-shadow: 0 0 0 1px @state-danger-border, 0 2px 8px rgba(0, 0, 0, 0.15);
+        top: 100%;
+        left: 50%;
+        margin-top: 8px;
+        transform-origin: 0 0;
+        transform: translateX(-50%);
+
+        &:before {
+          content: ' ';
+          background: inherit;
+          position: absolute;
+          width: 6px;
+          height: 6px;
+          border: solid 1px @state-danger-border;
+          border-width: 1px 0 0 1px;
+          bottom: 100%;
+          left: 50%;
+          transform: rotate(45deg) translateY(3px);
+        }
+      }
+
+      .@{upload-prefix}-progress-bg {
+        display: none;
+      }
+    }
+  }
+
+  &-image-plus {
+    position: relative;
+    display: inline-flex;
+    vertical-align: top;
+
+    .@{upload-prefix}-indicator {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      left: 50%;
+      top: 50%;
+      margin: -15px -15px;
+
+      &:before, &:after {
+        position: absolute;
+        content: ' ';
+        display: block;
+        background: #999;
+      }
+
+      &:before {
+        left: 14px;
+        width: 2px;
+        height: 30px;
+      }
+
+      &:after {
+        top: 14px;
+        width: 30px;
+        height: 2px;
+      }
+    }
+
+    &:hover {
+      border-color: @colors-primary;
+      .@{upload-prefix}-indicator {
+        &:before, &:after {
+          background: @colors-primary;
+        }
+      }
+    }
+  }
+
+  &-image-result {
+    border-style: solid;
+
+    .@{upload-prefix}-delete {
+      visibility: hidden;
+    }
+
+    &:hover {
+      .@{upload-prefix}-delete {
+        visibility: visible;
+      }
+    }
+
+    &.@{upload-prefix}-to-be-delete {
+      border-style: dashed;
+
+      .@{upload-prefix}-image-bg {
+        opacity: 0.6;
+        filter: grayscale(100%);
+      }
+    }
+  }
+}

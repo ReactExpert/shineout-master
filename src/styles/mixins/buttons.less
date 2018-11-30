@@ -1,0 +1,98 @@
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+
+
+
+.button-variant(@color; @background; @outline; @name; @border:transparent) {
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+  transition: background 0.15s ease-in-out;
+
+  @keyname: ~"btn-focus-@{name}";
+
+  @keyframes @keyname {
+    0% {
+      box-shadow: 0 0 0 0 fade(@outline, 60%);
+    }
+    50% {
+      box-shadow: 0 0 0 @btn-focus-width/2 fade(@outline, 0%);
+    }
+    100% {
+      box-shadow: 0 0 0 @btn-focus-width fade(@outline, 0);
+    }
+  }
+
+  &:focus {
+    color: @color;
+    // box-shadow: 0 0 0 @btn-focus-width fade(@border, 50%);
+  }
+  &:hover {
+    color: @color;
+    background-color: darken(@background, @btn-hover-darken);
+        border-color: darken(@outline, @btn-hover-darken);
+  }
+  &:active {
+    color: @color;
+    background-color: darken(@background, @btn-hover-darken);
+        border-color: darken(@outline, @btn-hover-darken);
+    animation: @keyname 0.4s ease-out;
+  }
+
+  &:active {
+    background-image: none;
+  }
+
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus {
+      background-color: @background;
+          border-color: @border;
+    }
+
+    &:active {
+      animation: none;
+    }
+  }
+}
+
+.button-outline(@color; @background; @border;) {
+  color: @border;
+  border-color: @border;
+  background: transparent;
+
+  &:hover {
+    color: @color;
+    background-color: @background;
+  }
+  &:active {
+    color: @color;
+    background-color: @background;
+    animation: @keyname 0.4s ease-out;
+  }
+
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus {
+      color: @border;
+      border-color: @border;
+      background: transparent;
+    }
+
+    &:active {
+      animation: none;
+    }
+  }
+}
+
+// Button sizes
+.button-size(@padding-vertical; @padding-horizontal; @font-size; @line-height; @border-radius) {
+  padding: @padding-vertical @padding-horizontal;
+  font-size: @font-size;
+  line-height: @line-height;
+  border-radius: @border-radius;
+}

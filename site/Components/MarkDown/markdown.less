@@ -1,0 +1,111 @@
+@import '../../styles/variables.less';
+
+.doc-markdown {
+  padding: 30px 200px 0 0;
+  flex: 1;
+  // overflow: hidden;
+
+  & > h1, & > h2, & > h3 {
+    font-weight: normal;
+    em {
+      font-size: 0.75em;
+    }
+  }
+
+  & > h1 {
+    em {
+      font-weight: normal;
+      font-style: normal;
+      color: #555;
+    }
+  }
+
+  & > h2 {
+    margin: 40px 0;
+    padding-top: 20px;
+  }
+
+  & > h3 {
+    position: relative;
+    color: @gray-600;
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    line-height: 1;
+
+    &:before {
+      content: ' ';
+      position: absolute;
+      width: 3px;
+      left: 0;
+      top: 20px;
+      bottom: 0px;
+      background: linear-gradient(to bottom, #3023AE, #53A0FD 40%, #51ECBF);
+    }
+  }
+
+  pre {
+    background: #fff;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    margin: 0 0 20px;
+
+    & + pre {
+      margin-top: -21px;
+    }
+
+    code {
+      padding: 16px;
+      background: #f7f7f7;
+    }
+  }
+
+  & > pre {
+    // border: solid 1px @doc-border-color;
+    border-radius: 2px;
+  }
+
+  & > table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid @doc-border-color;
+    background: #fff;
+
+    th {
+      text-align: left;
+      white-space: nowrap;
+      background: #f5f5f5;
+    }
+
+    td, th {
+      font-size: inherit;
+      margin: 0;
+      overflow: visible;
+      padding: 12px 20px;
+      border: 1px solid @doc-border-color;
+      border-width: 0 0 1px 1px;
+    }
+  }
+
+  pre + &-console {
+    margin-top: -21px;
+  }
+
+  &-console {
+    position: relative;
+    padding: 6px 8px;
+    background: #fff;
+    // border: 1px solid @doc-border-color;
+    border-bottom: solid 1px #f2f2f2;
+
+    &:before {
+      content: '>';
+      color: @gray-300;
+      margin-right: 8px;
+    }
+  }
+}

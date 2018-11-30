@@ -1,0 +1,16 @@
+build
+dist
+lib-cov
+coverage.html
+.DS_Store
+node_modules
+publish
+.idea
+*.sock
+*.swp
+*.bat
+/*.sh
+/components
+*.log
+/data
+gh-pages

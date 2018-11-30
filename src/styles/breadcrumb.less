@@ -1,0 +1,32 @@
+@import './variables.less';
+@import './themes/@{so-theme}.less';
+
+@breadcrumb-prefix:  ~"@{so-prefix}-breadcrumb";
+
+//
+// Breadcrumbs
+// --------------------------------------------------
+
+
+.@{breadcrumb-prefix} {
+  list-style: none;
+  background-color: @breadcrumb-bg;
+  border-radius: @border-radius-base;
+  font-size: @font-size-base;
+  a, b {
+    display: inline-block;
+    margin: 0 @breadcrumb-padding-vertical;
+  }
+
+  a {
+    color: @breadcrumb-a-color;
+  }
+
+  b {
+    font-weight: normal;
+  }
+
+  a:hover {
+    color: @colors-primary;
+  }
+}
